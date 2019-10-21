@@ -47,9 +47,9 @@ public class Capa extends View{
 		this.contexto = contexto;
 
 		//		TODO quitar
-		paint=new Paint();
-		paint.setColor(Color.RED);
-		paint.setStyle(Paint.Style.STROKE);
+//		paint=new Paint();
+//		paint.setColor(Color.RED);
+//		paint.setStyle(Paint.Style.STROKE);
 	}
 
 
@@ -64,25 +64,10 @@ public class Capa extends View{
 
 		//		TODO quitar paint borde o darlo como opción
 		//Borde
-		canvas.drawRect(rectContImagPantalla, paint);
+//		canvas.drawRect(rectContImagPantalla, paint);
 //		}
 	}
 
-//	public void mostrarImagPantalla(Boolean mostrar){
-////		Capa capa = idToCapa.get(itemId);
-//		if (mostrar) {
-//			Log.v("test", "VISIBLE");
-//			this.setVisibility(View.VISIBLE);
-//		} else {
-//			Log.v("test", "INVISIBLE");
-//			this.setVisibility(View.INVISIBLE);
-//		}
-//	}
-//	public void mostrarImagPantalla(Boolean mostrar){
-//		Log.v("test", "mostrarImagPantalla: " + mostrar);
-//		visibleImagPantalla = mostrar;
-//		invalidate();
-//	}
 
 
 
@@ -133,31 +118,6 @@ public class Capa extends View{
 	public void ajustar_imagen_a (float anchuraAjuste, float alturaAjuste){
 		transformar_a(new RectF(0, 0, anchuraAjuste, alturaAjuste), Matrix.ScaleToFit.CENTER);
 	}
-
-//	public void escalar_a(float modFactorDeEscala){
-//		Log.v("test", "escalar_a: " + modFactorDeEscala);
-////		mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 5.0f));
-//		this.factorDeEscalaImagPantalla *= modFactorDeEscala;
-//
-////		float imgOriginal_left = rectContImagOriginal.left *factorDeEscala;
-////		float imgOriginal_top = rectContImagOriginal.top *factorDeEscala;
-////		float imgOriginal_right = rectContImagOriginal.right *factorDeEscala;
-////		float imgOriginal_bottom = rectContImagOriginal.bottom *factorDeEscala;
-//
-//
-//
-//		float imgIniPantalla_left = this.rectContImagInicioEnPantalla.left * this.factorDeEscalaImagPantalla;
-//		float imgIniPantalla_top = this.rectContImagInicioEnPantalla.top * this.factorDeEscalaImagPantalla;
-//		float imgIniPantalla_right = this.rectContImagInicioEnPantalla.right * this.factorDeEscalaImagPantalla;
-//		float imgIniPantalla_bottom = this.rectContImagInicioEnPantalla.bottom * this.factorDeEscalaImagPantalla;
-//
-////		this.factorDeEscala = factorDeEscala;
-//		this.transformar_a ( new RectF(img_left, img_top, imgIniPantalla_right, imgIniPantalla_bottom ), Matrix.ScaleToFit.CENTER );
-////		this.transformar_a ( new RectF(img_left, img_top, img_right*this.factorDeEscalaImagPantalla, img_bottom*this.factorDeEscalaImagPantalla ), Matrix.ScaleToFit.CENTER );
-//	}
-
-
-
 
 	/** Mueve la imagen exactamente a estas coordenadas, siendo el (0,0) de la imagen las posición que se mueve
 	 * @param x
