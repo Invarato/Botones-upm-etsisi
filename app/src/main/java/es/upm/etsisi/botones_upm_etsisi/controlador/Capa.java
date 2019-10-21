@@ -576,7 +576,7 @@ public class Capa extends View{
 	 *@param orden Elige la modificación que se va a efectuar
 	 */
 	public void cambiar_color(CapaFiltros.ORDEN orden){
-		this.bitmap_original = CapaFiltros.cambiar_color(this.bitmap_original, orden);
+		this.bitmap_original = CapaFiltros.cambiar_color(contexto, this.bitmap_original, orden);
 		generar_previsulizacion_imagen ();
 	}
 
@@ -587,7 +587,7 @@ public class Capa extends View{
 	 *@param umbral Elige el umbral sobre el que tiene que actuar el filtro
 	 */
 	public void cambiar_color_variable(CapaFiltros.ORDEN orden, int umbral){
-		this.bitmap_original = CapaFiltros.cambiar_color_variable(this.bitmap_original, orden, umbral);
+		this.bitmap_original = CapaFiltros.cambiar_color_variable(contexto, this.bitmap_original, orden, umbral);
 		generar_previsulizacion_imagen ();
 	}
 

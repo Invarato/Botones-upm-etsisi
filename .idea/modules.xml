@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Botones-upm-etsisi.iml" filepath="$PROJECT_DIR$/Botones-upm-etsisi.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/es-upm-etsisi-imagefilter/es-upm-etsisi-imagefilter.iml" filepath="$PROJECT_DIR$/es-upm-etsisi-imagefilter/es-upm-etsisi-imagefilter.iml" />
     </modules>
   </component>
 </project>

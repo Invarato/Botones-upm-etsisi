@@ -1,6 +1,10 @@
 package es.upm.etsisi.botones_upm_etsisi.controlador;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+
+import es.upm.etsisi.imagefilter.Filtros;
+
 
 public class CapaFiltros {
 
@@ -45,63 +49,63 @@ public class CapaFiltros {
      * Método que modifica una imagen completamente. Ya sea solo el color, o algún filtrado.
      *@param orden Elige la modificación que se va a efectuar
      */
-    static public Bitmap cambiar_color(Bitmap bitmap_original, ORDEN orden){
+    static public Bitmap cambiar_color(Context context, Bitmap bitmap_original, ORDEN orden){
 
-        Filtros filtro = new Filtros(bitmap_original);
+        Filtros f = new Filtros(context, bitmap_original);
 
         switch (orden){
             case SEPIA:{
-                bitmap_original = filtro.sepiaImagen(bitmap_original);
+                f.sepia();
                 break;}
             case GRIS:{
-                bitmap_original = filtro.escalaGrisesImagen(bitmap_original);
+                f.escalaDeGrisesHDR();
                 break;}
             case INVERT:{
-                bitmap_original = filtro.invertirColoresImagen(bitmap_original);
+                f.invertir();
                 break;}
             case AZUL:{
-                bitmap_original = filtro.azuladoImagen(bitmap_original);
+                 f.azulado();
                 break;}
             case SOLAR:{
-                bitmap_original = filtro.solarizarImagen(bitmap_original);
+                 f.solarizar();
                 break;}
-            case PBAJO:{
-                bitmap_original = filtro.pasoBajo(bitmap_original);
-                break;}
+//TODO            case PBAJO:{
+//TODO                 f.pasoBajo();
+//TODO                break;}
             case MEDIANA:{
-                bitmap_original = filtro.mediana(bitmap_original);
+                 f.mediana();
                 break;}
-            case GRADIENTE:{
-                bitmap_original = filtro.gradiente(bitmap_original);
-                break;}
-            case PALTO:{
-                bitmap_original = filtro.pasoAlto(bitmap_original);
-                break;}
-            case SOBEL:{
-                bitmap_original = filtro.sobel(bitmap_original);
-                break;}
-            case PREWITT:{
-                bitmap_original = filtro.prewitt(bitmap_original);
-                break;}
-            case ROBERTS:{
-                bitmap_original = filtro.roberts(bitmap_original);
-                break;}
-            case FREICHEN:{
-                bitmap_original = filtro.freiChen(bitmap_original);
-                break;}
-            case LAPLACE:{
-                bitmap_original = filtro.laplaciana(bitmap_original);
-                break;}
-            case RLAPLACE:{
-                bitmap_original = filtro.realceLaplaciana(bitmap_original);
-                break;}
-            case SROBERTS:{
-                bitmap_original = filtro.suavizadoRoberts(bitmap_original);
-                break;}
+//TODO             case GRADIENTE:{
+//TODO                  f.gradiente();
+//TODO                 break;}
+//TODO             case PALTO:{
+//TODO                  f.pasoAlto();
+//TODO                 break;}
+//TODO             case SOBEL:{
+//TODO                  f.sobel();
+//TODO                 break;}
+//TODO             case PREWITT:{
+//TODO                  f.prewitt();
+//TODO                 break;}
+//TODO             case ROBERTS:{
+//TODO                  f.roberts();
+//TODO                 break;}
+//TODO             case FREICHEN:{
+//TODO                  f.freiChen();
+//TODO                 break;}
+//TODO             case LAPLACE:{
+//TODO                  f.laplaciana();
+//TODO                 break;}
+//TODO             case RLAPLACE:{
+//TODO                  f.realceLaplaciana();
+//TODO                 break;}
+//TODO             case SROBERTS:{
+//TODO                  f.suavizadoRoberts();
+//TODO                 break;}
 
         }
 
-        return bitmap_original;
+        return f.getBitmapProcessed();
     }
 
 
@@ -110,39 +114,37 @@ public class CapaFiltros {
      *@param orden Elige la modificación que se va a efectuar
      *@param umbral Elige el umbral sobre el que tiene que actuar el filtro
      */
-    static public Bitmap cambiar_color_variable(Bitmap bitmap_original, ORDEN orden, int umbral){
-
-        Filtros filtro = new Filtros(bitmap_original);
+    static public Bitmap cambiar_color_variable(Context context, Bitmap bitmap_original, ORDEN orden, int umbral){
+        Filtros f = new Filtros(context, bitmap_original);
 
         switch (orden){
             case BYN:{
-                bitmap_original = filtro.blancoNegroImagen(bitmap_original,umbral);
+                f.blancoNegro(umbral);
                 break;}
-            case TRANS:{
-                bitmap_original = filtro.transparenciaImagen(bitmap_original, umbral);
-                break;}
+//TODO            case TRANS:{
+//TODO                f.transparenciaImagen( umbral);
+//TODO                break;}
             case MATIZ:{
-                bitmap_original = filtro.matizImagen(bitmap_original, umbral);
+                f.matiz(umbral);
                 break;}
             case SATURA:{
-                bitmap_original = filtro.saturacionImagen(bitmap_original, umbral);
+                f.saturacion(umbral);
                 break;}
             case INTENSIDAD:{
-                bitmap_original = filtro.intensidadImagen(bitmap_original, umbral);
+                f.intensidad(umbral);
                 break;}
             case BRILLO:{
-                bitmap_original = filtro.brilloImagen(bitmap_original, umbral);
+                f.brillo(umbral);
                 break;}
             case CONTRASTE:{
-                bitmap_original = filtro.contrasteImagen(bitmap_original, umbral);
+                f.contraste(umbral);
                 break;}
             case POST:{
-                bitmap_original = filtro.posterizarImagen(bitmap_original, umbral);
+                f.posterizar(umbral);
                 break;}
         }
 
-        return bitmap_original;
-
+        return f.getBitmapProcessed();
     }
 
 }
